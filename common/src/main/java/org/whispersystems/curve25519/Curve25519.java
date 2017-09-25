@@ -55,8 +55,8 @@ public class Curve25519 {
    *
    * @return A randomly generated Curve25519 keypair.
    */
-  public Curve25519KeyPair generateKeyPair() {
-    byte[] privateKey = provider.generatePrivateKey();
+  public Curve25519KeyPair generateKeyPair(byte[] random) {
+    byte[] privateKey = provider.generatePrivateKey(seed);
     byte[] publicKey  = provider.generatePublicKey(privateKey);
 
     return new Curve25519KeyPair(publicKey, privateKey);
